@@ -7,6 +7,7 @@ import com.kedai.kedaibe.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,7 +22,7 @@ public class ProductController {
     private MerchantRepository merchantRepository;
 
     @GetMapping(path = "/merchant/{id}/products")
-    public @ResponseBody Optional<Product> getProductsByMerchantId(@PathVariable String id) {
+    public @ResponseBody List<Product> getProductsByMerchantId(@PathVariable String id) {
         return productService.getProductsByMerchantId(Long.parseLong(id));
     }
 
