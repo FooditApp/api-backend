@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
-    List<Product> findByMerchantId(Long id);
+    List<ProductSummary> findByMerchantId(Long id);
+
+    List<ProductSummary> findAllProjectedBy();
 }

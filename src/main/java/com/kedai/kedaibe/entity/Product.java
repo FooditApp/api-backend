@@ -49,8 +49,16 @@ public class Product {
         this.productDesc = productDesc;
     }
 
-    // RELATIONSHIP
+    // PRODUCT POPULARITY
+    private Integer productRating;
+    public Integer getProductRating() {
+        return productRating;
+    }
+    public void setProductRating(Integer productRating) {
+        this.productRating = productRating;
+    }
 
+    // RELATIONSHIP
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "merchant_id", referencedColumnName = "merchant_id")
     @JsonIgnore

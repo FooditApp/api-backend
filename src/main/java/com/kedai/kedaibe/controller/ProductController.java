@@ -3,12 +3,12 @@ package com.kedai.kedaibe.controller;
 import com.kedai.kedaibe.entity.Product;
 import com.kedai.kedaibe.repository.MerchantRepository;
 import com.kedai.kedaibe.repository.ProductRepository;
+import com.kedai.kedaibe.repository.ProductSummary;
 import com.kedai.kedaibe.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/foodit")
@@ -22,7 +22,7 @@ public class ProductController {
     private MerchantRepository merchantRepository;
 
     @GetMapping(path = "/merchant/{id}/products")
-    public @ResponseBody List<Product> getProductsByMerchantId(@PathVariable String id) {
+    public @ResponseBody List<ProductSummary> getProductsByMerchantId(@PathVariable String id) {
         return productService.getProductsByMerchantId(Long.parseLong(id));
     }
 
@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @GetMapping(path = "/products")
-    public @ResponseBody Iterable<Product> getProduct() {
-        return productRepository.findAll();
+    public @ResponseBody Iterable<ProductSummary> getProduct() {
+        return productRepository.findAllProjectedBy();
     }
 }

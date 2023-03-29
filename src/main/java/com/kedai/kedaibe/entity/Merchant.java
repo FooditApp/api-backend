@@ -1,5 +1,6 @@
 package com.kedai.kedaibe.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -50,12 +51,21 @@ public class Merchant {
     // RELATIONSHIP
     @OneToMany(mappedBy = "merchant")
     private List<Product> products;
-
     public List<Product> getProducts() {
         return products;
     }
-
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id", referencedColumnName = "location_id")
+    @JsonIgnore
+    private Location location;
+    public Location getLocation() {
+        return location;
+    }
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }
