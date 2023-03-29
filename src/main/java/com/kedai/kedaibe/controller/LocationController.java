@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 // REST CONTROLLER FOR LOCATION
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "/api/v1/foodit")
 public class LocationController {
     @Autowired
