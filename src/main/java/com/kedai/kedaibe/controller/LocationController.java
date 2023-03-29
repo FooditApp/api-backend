@@ -15,7 +15,7 @@ public class LocationController {
     private MerchantRepository merchantRepository;
 
     // GET MERCHANT BY LOCATION ID
-    @GetMapping(path = "/location/{id}")
+    @PostMapping(path = "/location/{id}")
     public @ResponseBody Iterable<Merchant> getMerchantByLocation(@PathVariable String id) {
         return merchantRepository.findMerchantByLocationId(Long.parseLong(id));
     }
