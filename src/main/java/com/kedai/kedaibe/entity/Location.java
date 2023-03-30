@@ -40,6 +40,10 @@ public class Location {
         this.lat = lat;
     }
 
+    /**
+     * Relationship (ONE to MANY)
+     * Location --> Merchant
+     */
     @OneToMany(mappedBy = "location")
     private List<Merchant> merchants;
     public List<Merchant> getMerchants() {

@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * REST CONTROLLER
+// * CORS allow all origin
+ */
 @RestController
 @RequestMapping(path = "/api/v1/foodit")
 public class CartController {

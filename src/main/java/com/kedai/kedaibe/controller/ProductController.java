@@ -10,23 +10,29 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST CONTROLLER
+ * CORS allow all origin
+ */
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/api/v1/foodit")
 public class ProductController {
+    // AUTOWIRED REPOSITORY
     @Autowired
     private ProductRepository productRepository;
     @Autowired
     private ProductService productService;
-
     @Autowired
     private MerchantRepository merchantRepository;
 
+    // GET merchant products endpoint
     @GetMapping(path = "/merchant/{id}/products")
     public @ResponseBody List<ProductSummary> getProductsByMerchantId(@PathVariable String id) {
         return productService.getProductsByMerchantId(Long.parseLong(id));
     }
 
+    // POST merchant product endpoint
     @PostMapping(path = "/merchant/{id}/products/add")
     public String addProduct(
             @PathVariable String id,
@@ -42,6 +48,7 @@ public class ProductController {
         return "Product saved";
     }
 
+    // Get products endpoint
     @GetMapping(path = "/products")
     public @ResponseBody Iterable<ProductSummary> getProduct() {
         return productRepository.findAllProjectedBy();

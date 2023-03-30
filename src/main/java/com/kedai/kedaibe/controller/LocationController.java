@@ -9,17 +9,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// REST CONTROLLER FOR LOCATION
+/**
+ * REST CONTROLLER
+ * CORS allow all origin
+ */
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/api/v1/foodit")
 public class LocationController {
+    // AUTOWIRED
     @Autowired
     private MerchantRepository merchantRepository;
     @Autowired
     private LocationRepository locationRepository;
 
-    // GET MERCHANT BY LOCATION ID
+    // POST location endpoint
     @PostMapping(path = "/location/{id}")
     public @ResponseBody Iterable<Merchant> getMerchantByLocation(@PathVariable String id) {
         return merchantRepository.findMerchantByLocationId(Long.parseLong(id));

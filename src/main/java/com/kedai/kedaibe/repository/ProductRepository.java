@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository Interface for Product List
+ */
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
     List<ProductSummary> findByMerchantId(Long id);

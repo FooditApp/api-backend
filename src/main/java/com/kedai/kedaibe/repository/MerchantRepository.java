@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Repository Interface for Merchant List
+ */
 @Repository
 public interface MerchantRepository extends CrudRepository<Merchant, Long> {
     Merchant findMerchantById(Long id);

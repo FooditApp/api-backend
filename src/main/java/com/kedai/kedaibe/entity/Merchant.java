@@ -48,7 +48,10 @@ public class Merchant {
         this.merchantContact = merchantContact;
     }
 
-    // RELATIONSHIP
+    /**
+     * Relationship (ONE to MANY)
+     * Merchant --> Products
+     */
     @OneToMany(mappedBy = "merchant")
     private List<Product> products;
     public List<Product> getProducts() {
@@ -58,6 +61,10 @@ public class Merchant {
         this.products = products;
     }
 
+    /**
+     * Relationship (MANY to ONE)
+     * location id (Merchant) --> location id (Location)
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_id", referencedColumnName = "location_id")
     @JsonIgnore

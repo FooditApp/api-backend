@@ -8,15 +8,20 @@ import com.kedai.kedaibe.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * REST CONTROLLER
+ * CORS allow all origin
+ */
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/api/v1/foodit")
 public class MerchantController {
+    // AUTOWIRED
     @Autowired
     private MerchantRepository merchantRepository;
 
 
-    // ADD MERCHANT
+    // POST merchant endpoint
     @PostMapping(path = "/merchant/add")
     public String addMerchant(
             @RequestParam String name,
@@ -30,7 +35,7 @@ public class MerchantController {
         return "Merchant saved";
     }
 
-    // GET MERCHANT
+    // GET merchants endpoint
     @GetMapping(path = "/merchants")
     public @ResponseBody Iterable<Merchant> getMerchant() {
         return merchantRepository.findAll();

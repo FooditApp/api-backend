@@ -66,7 +66,10 @@ public class Product {
         this.productImage = productImage;
     }
 
-    // RELATIONSHIP
+    /**
+     * Relationship (MANY to ONE)
+     * merchant id (Merchant) --> merchant id (Product)
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "merchant_id", referencedColumnName = "merchant_id")
     @JsonIgnore
