@@ -58,6 +58,14 @@ public class Product {
         this.productRating = productRating;
     }
 
+    private String productImage;
+    public String getProductImage() {
+        return productImage;
+    }
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
     // RELATIONSHIP
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "merchant_id", referencedColumnName = "merchant_id")

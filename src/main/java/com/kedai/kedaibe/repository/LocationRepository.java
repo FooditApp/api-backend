@@ -1,7 +1,6 @@
 package com.kedai.kedaibe.repository;
 
 import com.kedai.kedaibe.entity.Location;
-import com.kedai.kedaibe.entity.Merchant;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
