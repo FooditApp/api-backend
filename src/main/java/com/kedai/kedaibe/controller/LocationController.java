@@ -24,6 +24,11 @@ public class LocationController {
     private LocationRepository locationRepository;
 
     // POST location endpoint
+
+    /**
+     *
+     * @param id Location id
+     */
     @PostMapping(path = "/location/{id}")
     public @ResponseBody Iterable<Merchant> getMerchantByLocation(@PathVariable String id) {
         return merchantRepository.findMerchantByLocationId(Long.parseLong(id));

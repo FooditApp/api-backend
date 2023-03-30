@@ -22,6 +22,11 @@ public class MerchantController {
 
 
     // POST merchant endpoint
+    /**
+     * @param name Merchant Name
+     * @param info Merchant Info
+     * @param contact Merchant Contact
+     */
     @PostMapping(path = "/merchant/add")
     public String addMerchant(
             @RequestParam String name,
@@ -36,6 +41,11 @@ public class MerchantController {
     }
 
     // GET merchants endpoint
+
+    /**
+     *
+     * @return Show all merchants
+     */
     @GetMapping(path = "/merchants")
     public @ResponseBody Iterable<Merchant> getMerchant() {
         return merchantRepository.findAll();

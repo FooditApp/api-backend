@@ -27,12 +27,25 @@ public class ProductController {
     private MerchantRepository merchantRepository;
 
     // GET merchant products endpoint
+
+    /**
+     *
+     * @param id Merchant id (return all product by merchant id)
+     */
     @GetMapping(path = "/merchant/{id}/products")
     public @ResponseBody List<ProductSummary> getProductsByMerchantId(@PathVariable String id) {
         return productService.getProductsByMerchantId(Long.parseLong(id));
     }
 
     // POST merchant product endpoint
+    /**
+     *
+     * @param id Merchant id (post new product to a merchant specified by merchant id)
+     * @param name Product name
+     * @param desc Product description
+     * @param price Product price
+     *
+     */
     @PostMapping(path = "/merchant/{id}/products/add")
     public String addProduct(
             @PathVariable String id,
